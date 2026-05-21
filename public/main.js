@@ -48,4 +48,31 @@
   // Footer year
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
+
+  // Inquiry forms -> open a prefilled email (no backend dependency)
+  document.querySelectorAll("form.inquiry-form").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var to = form.getAttribute("data-email");
+      var data = new FormData(form);
+      var subject = "Inquiry via techleadership.ai";
+      var lines = [];
+      data.forEach(function (val, key) {
+        if (String(val).trim() === "") return;
+        var label = key.charAt(0).toUpperCase() + key.slice(1);
+        if (key === "topic") subject = "techleadership.ai — " + val;
+        lines.push(label + ": " + val);
+      });
+      var href =
+        "mailto:" + to +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(lines.join("\n"));
+      var note = form.querySelector("[data-form-note]");
+      if (note) {
+        note.textContent = "Opening your email app… if nothing happens, write to " + to + ".";
+        note.hidden = false;
+      }
+      window.location.href = href;
+    });
+  });
 })();

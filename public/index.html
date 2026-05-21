@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Andrew Swerdlow — Tech Leadership | Author, Speaker & Advisor</title>
-<meta name="description" content="Andrew Swerdlow — technology leader (Google, Instagram, Facebook, YouTube) and bestselling author of Tech Leadership. Speaking, advising & executive coaching." />
+<meta name="description" content="Andrew Swerdlow — technology leader (Google, Instagram, Facebook, YouTube) and author of Tech Leadership. Speaking, advising & executive coaching." />
 <link rel="canonical" href="https://techleadership.ai/" />
 <meta name="author" content="Andrew Swerdlow" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Andrew Swerdlow — Tech Leadership" />
 <meta property="og:title" content="Andrew Swerdlow — Tech Leadership | Author, Speaker & Advisor" />
-<meta property="og:description" content="Bestselling author and technology leader. The blueprint for evolving from individual contributor to tech leader." />
+<meta property="og:description" content="Technology leader and author. The blueprint for evolving from individual contributor to tech leader." />
 <meta property="og:url" content="https://techleadership.ai/" />
 <meta property="og:image" content="https://techleadership.ai/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@AndroidX" />
 <meta name="twitter:title" content="Andrew Swerdlow — Tech Leadership" />
-<meta name="twitter:description" content="Bestselling author and technology leader. The blueprint for evolving from individual contributor to tech leader." />
+<meta name="twitter:description" content="Technology leader and author. The blueprint for evolving from individual contributor to tech leader." />
 <meta name="twitter:image" content="https://techleadership.ai/assets/og-image.png" />
 <meta name="theme-color" content="#0E0F12" />
 
@@ -51,7 +51,7 @@
       "name": "Andrew Swerdlow",
       "url": "https://techleadership.ai/",
       "jobTitle": "Technology Leader & Author",
-      "description": "Technology leader with leadership roles at Google, Instagram, Facebook, and YouTube. Author of the bestselling book Tech Leadership. Awarded 35+ patents; has built and led globally distributed engineering organizations of 100+ engineers.",
+      "description": "Technology leader with leadership roles at Google, Instagram, Facebook, and YouTube. Author of the book Tech Leadership. Awarded 35+ patents; has built and led globally distributed engineering organizations of 100+ engineers.",
       "homeLocation": { "@type": "Place", "name": "San Francisco, CA" },
       "alumniOf": [
         { "@type": "CollegeOrUniversity", "name": "University of Victoria" },
@@ -114,11 +114,19 @@
       <div class="hero-grid">
         <div>
           <span class="eyebrow reveal">Author · Speaker · Advisor</span>
-          <h1 class="reveal">The blueprint for becoming a <span class="neon">tech leader</span>.</h1>
-          <p class="lead reveal">For three decades I built and led engineering organizations at Google, Instagram, Facebook, and YouTube — and wrote the book on how individual contributors evolve into the leaders their teams deserve.</p>
+          <h1 class="wordmark reveal" aria-label="Tech Leadership">
+            <span class="wm-tech" aria-hidden="true">T<i></i>E<i></i>C<i></i>H</span>
+            <span class="wm-lead">Leadership</span>
+          </h1>
+          <p class="lead reveal">The blueprint for evolving from individual contributor to tech leader — by Andrew Swerdlow, who built and led engineering teams at Google, Instagram, Facebook &amp; YouTube.</p>
           <div class="hero-actions reveal">
-            <a class="btn btn--scarlet" href="/book">Get the Book</a>
+            <a class="btn btn--scarlet" href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor/dp/B0CK45BHLX" target="_blank" rel="noopener">Get the Book</a>
             <a class="btn btn--ghost" href="/engage">Work With Me</a>
+          </div>
+          <div class="hero-formats reveal" aria-label="Other formats">
+            <span>Also on</span>
+            <a href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor-ebook/dp/B0CK7ZM6B8" target="_blank" rel="noopener">Kindle</a>
+            <a href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor/dp/B0CZLZNH27" target="_blank" rel="noopener">Audiobook</a>
           </div>
           <div class="hero-meta reveal">
             <div><span class="stat">35+</span><span class="stat-label">Patents awarded</span></div>
@@ -127,7 +135,7 @@
           </div>
         </div>
         <div class="hero-cover reveal">
-          <a href="/book" aria-label="Tech Leadership — view the book">
+          <a href="/book" class="cover-plate" aria-label="Tech Leadership — view the book">
             <img src="/assets/book-cover.jpg" width="906" height="1400" loading="eager"
                  alt="Tech Leadership: The Blueprint for Evolving from Individual Contributor to Tech Leader, by Andrew Swerdlow — book cover" />
           </a>
@@ -300,7 +308,7 @@
         <p style="color:var(--ink-faint); font-size:0.95rem;">San Francisco, California</p>
       </div>
       <div class="reveal">
-        <form action="mailto:andrewcswerdlow@gmail.com" method="post" enctype="text/plain">
+        <form class="inquiry-form" data-email="andrewcswerdlow@gmail.com" action="mailto:andrewcswerdlow@gmail.com" method="get">
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name" required />
@@ -325,6 +333,7 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <button class="btn btn--scarlet" type="submit">Send inquiry</button>
+          <p class="form-note" data-form-note hidden></p>
         </form>
       </div>
     </div>

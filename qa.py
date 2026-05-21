@@ -13,7 +13,7 @@ errors, warnings = [], []
 
 def resolve_internal(href):
     """Map an internal href to a file path under public/. Returns Path or None for anchors/mailto."""
-    href = href.split("#")[0]
+    href = href.split("#")[0].split("?")[0]
     if not href or href.startswith(("mailto:", "tel:", "http://", "https://")):
         return None
     if href == "/":

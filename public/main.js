@@ -14,15 +14,23 @@
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
   if (toggle && links) {
-    toggle.addEventListener("click", function () {
-      var open = links.classList.toggle("is-open");
+    function setNav(open) {
+      links.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("nav-open", open);
+    }
+    toggle.addEventListener("click", function () {
+      setNav(!links.classList.contains("is-open"));
     });
     links.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        links.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", function () { setNav(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && links.classList.contains("is-open")) setNav(false);
+    });
+    // Reset lock if viewport grows past the mobile breakpoint while open
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 880 && links.classList.contains("is-open")) setNav(false);
     });
   }
 

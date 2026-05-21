@@ -1,91 +1,83 @@
-# Launch Review — techleadership.ai
+# Launch Review — techleadership.ai (Round 2)
 
 Reviewer: Margot Sterling · Date: 2026-05-20
 Subject: Andrew Swerdlow, *Tech Leadership: The Blueprint for Evolving from Individual Contributor to Tech Leader*
+
+This is my second pass, after the developer addressed Round 1. I verified every claim against the source in `/Users/acs/Techleadership/public/`, the desktop/mobile/book screenshots, and the live site (home, /book, /how-to-become-a-tech-leader) — I did not take the change-list on faith.
 
 ---
 
 ## 1. First Impression
 
-A stranger landing here in the first five seconds gets it: scarlet wall, a tilted book cover, "THE BLUEPRINT FOR BECOMING A TECH LEADER," and three hard credibility stats (35+ patents, 100+ engineers, billions of users). That is a strong, confident open — it reads as a serious operator, not a hobbyist. It feels premium and intentional.
+This is a markedly stronger open than Round 1. The two things that undercut the first five seconds last time are both fixed: the cover no longer floats off the right edge or camouflages, and the headline now *is* the book — the hero leads with the neon "T·E·C·H" wordmark over solid-black "Leadership," echoing the cover instead of competing with it. The scarlet wall, the three credibility stats (35+ patents, 100+ engineers, billions of users), and a real buy path are all present in the first viewport. A reporter landing here now thinks "this is the book," not just "good designer." Premium and intentional, and now on-brand.
 
-But two things undercut the punch immediately. First, the hero cover image floats off the right edge and is partially clipped on desktop — the single most important brand asset on the page is cropped, which a reporter notices instantly. Second, the headline competes with the cover instead of echoing it: the cover's hero word is the neon "T·E·C·H," and the page buries "tech" mid-sentence in lowercase. The first impression is "good designer," not yet "this is the book."
+The single remaining gap to a flawless first impression is human: there is still no photograph of Andrew. For a faceless book that is fine; for a site also selling coaching and speaking it is the last thing standing between "polished" and "reporter-ready." See §4 — this is an author dependency, not a developer miss.
 
 ## 2. Brand Match with the Book
 
-This is the section that needs the most work, because the gap is specific and fixable.
+The signature gap from Round 1 is closed. This is now the section's strength rather than its weakness.
 
-- **Palette — close, not exact.** The site uses `--scarlet: #E2231A`, which matches the brief's stated cover red. Good. But the cover red as it actually renders in the JPG is a touch warmer/brighter; against the site's near-black `#0E0F12` body the scarlet reads slightly more orange. Acceptable, but verify `#E2231A` against a sampled pixel from the cover, not the spec sheet.
-- **The signature lettering is NOT reproduced.** The cover's identity is unmistakable: white **neon-tube outlined** "T·E·C·H" with **square node dots between the letters** and a soft glow, sitting above a solid-black "LEADERSHIP." The site's display face is Archivo Expanded — a clean grotesque that does NOT resemble the cover's lettering. The cover letters are a custom neon/stencil treatment; Archivo is a standard sans. The site approximates the glow with `-webkit-text-stroke` on the word "tech," but: (a) there are no square node dots, (b) the spacing is normal kerning, not the cover's wide `T·E·C·H` letterspacing, and (c) it is applied to lowercase "tech" inside a sentence rather than as a standalone wordmark. The brand's most recognizable element is missing from the site.
-- **Cover legibility against red.** On the homepage the cover is placed on a red hero of nearly the same hue. Because the cover is itself overwhelmingly red, it nearly camouflages into the background — only the drop shadow and slight rotation separate them. A red book on a red wall is a real problem; the cover loses its edges. It needs a contrasting plate, a darker vignette behind it, or placement on the dark surface instead.
-- **Type case — matches well.** Heavy all-caps display throughout mirrors the cover's all-caps voice. This is the strongest brand tie and it works.
-- **Circuit texture — on-brand.** The faint circuit-board background echoes the cover's texture. Good instinct; keep it subtle (it currently is).
+- **Neon wordmark — RESOLVED and well executed.** `.wm-tech` recreates the cover lockup honestly: wide letterspacing (`0.06em`), white neon stroke (`-webkit-text-stroke: 2.5px #fff`) with a soft glow, and — the detail that was missing before — the **square node dots between letters**, built as real elements (`.wm-tech i`, glowing white squares). It renders as a standalone wordmark in the hero, not buried in a lowercase sentence. There is also a proper `@supports` fallback that fills the letters white where text-stroke is unsupported, and an `aria-label="Tech Leadership"` so the decorative markup stays accessible. This is the recognizable identity of the book, reproduced.
+- **Cover legibility — RESOLVED.** The cover now sits on a dark gradient plate (`.cover-plate`, `#20232b → #0E0F12`) with its own border and shadow, so the red book reads cleanly against the red hero on both desktop and mobile. Verified in `/tmp/pub-home.png` and `/tmp/pub-mobile.png` — clean edges, no camouflage, not clipped.
+- **Palette, type case, circuit texture** — all still on-brand and consistent (`--scarlet: #E2231A`, all-caps display, subtle circuit fields). Good.
 
-Net: the *mood* matches; the *signature* does not. Until the neon "T·E·C·H" wordmark (square dots, wide tracking) appears, the site is "inspired by" the book rather than "of" the book.
+Net: the site now reads as *of* the book, not merely "inspired by" it.
 
 ## 3. Typography & Layout
 
-- Archivo Expanded + IBM Plex Sans is a clean, professional pairing and renders crisply. Hierarchy is clear.
-- `line-height: 0.98` with `font-stretch: 125%` on all headings is aggressive; on multi-line H2s the lines nearly touch. Verify descenders/ascenders aren't colliding at large sizes.
-- The hero grid `1.1fr 0.9fr` plus the cover's negative-rotation and overflow is what causes the cover clipping (`.hero { overflow: hidden }` crops it). Layout math needs a fix, not just art direction.
-- Body measure and section rhythm (`clamp` padding) are tasteful and consistent. Good restraint.
+- The Archivo / IBM Plex Sans pairing is unchanged and still clean and professional. Hierarchy is clear.
+- The hero clipping cause from Round 1 is gone: the cover lives in a centered, plated, capped-width column (`max-width: 288px`, `margin-inline: auto`) inside the grid, so `overflow: hidden` on `.hero` no longer crops it. Layout math fixed, not just art-directed around.
+- The aggressive `line-height: 0.98` / `font-stretch: 125%` on headings persists; it reads as deliberate display styling and I see no descender collisions in the screenshots. Acceptable — keep an eye on it only if a long H2 wraps to three lines.
+- Section rhythm and `clamp` padding remain tasteful.
 
 ## 4. Imagery & Visual Polish
 
-- The site rests on a **single** image: the book cover, reused three times. There is **no photograph of Andrew anywhere**. For an author selling speaking, advising, and 1:1 coaching, the absence of a human face is a serious omission — buyers of premium engagements want to see the person. This is the biggest content gap after the wordmark.
-- No speaking photos, no stage shots, no logos rendered as actual marks (Google/Instagram/etc. are plain text). Text-only "logos" read as a placeholder, not a credibility strip.
-- The `og-image.png` exists (good for sharing), but confirm it carries the neon wordmark too, or social shares will have the same brand drift.
-- Polish level of what exists is high: shadows, hover lifts, reveal-on-scroll are all tasteful and not overdone.
+- Polish of what exists is high: the plated cover, hover lifts, reveal-on-scroll, and the new wordmark glow are all tasteful.
+- **Still no photograph of Andrew anywhere.** This is the one substantive content gap remaining, and it is the difference between "polished launch" and "reporter-ready" for a personal brand selling coaching and speaking. The developer cannot resolve this without a licensed headshot from the author — so I am logging it as an **author dependency**, not a developer failure. It does, however, hold the verdict back (see §9 / Verdict).
+- The company "logos" are still rendered as styled text names (Google / Instagram / Facebook / YouTube) with a node dot. With the node-dot styling they now read as an intentional credibility strip rather than a raw placeholder, so I am downgrading this from a flaw to a nice-to-have.
+- `og-image.png` (411 KB) is in place; confirm it carries the neon wordmark so social shares match the new hero, and consider compressing it.
 
 ## 5. Copy & Author Voice
 
-- Copy is genuinely good — confident, specific, first-person on the homepage ("For three decades I built and led…"). It sounds like a leader, not a marketer.
-- **"Bestselling" is used repeatedly** (meta descriptions, book hero, intro). Unless there is a verifiable list placement (NYT, WSJ, USA Today, or a category Amazon bestseller badge), drop or qualify it. A reporter will check, and an unsupported "bestselling" claim damages credibility — and can be a legal exposure. Replace with concrete proof (patents, orgs led, named endorsers) which you already have.
-- Voice drifts between first person (home) and third person (book page: "Andrew Swerdlow helps…"). Pick one per page consistently.
-- Endorser titles are strong and correctly attributed (Stepka, Dragoiu). Good.
+- Copy remains genuinely good — confident, specific, first-person on the homepage ("I am a technology pioneer…"). It sounds like a leader.
+- **"Bestselling" — RESOLVED.** Confirmed removed sitewide: a case-insensitive grep across all HTML, CSS, and JS returns nothing, and the live home page no longer contains it. The unsubstantiated claim and its legal exposure are gone, replaced by concrete proof (patents, orgs, named endorsers). Exactly right.
+- Endorser attributions (Stepka, Dragoiu) are strong and correct.
+- **Minor, carried over:** voice still drifts to third person on /book ("Andrew Swerdlow helps…", "…provides…") while the home page is first person. Pick one voice per page. Low priority, not a blocker.
 
 ## 6. Conversion
 
-- All three formats are present with distinct, working Amazon/Audible links (Paperback B0CK45BHLX, Kindle B0CK7ZM6B8, Audible B0CZLZNH27), plus B&N and Apple Books. Format clarity is excellent — this is the strongest conversion element.
-- **The ask is NOT above the fold.** The homepage hero CTA is "Get the Book," which scrolls to the format grid much lower; there is no buy button until the user scrolls. For a book site, put a direct purchase path (or the three format buttons) within the first viewport.
-- **Contact form uses `action="mailto:"` with `method="post"`.** This is broken in practice — most browsers either do nothing or dump raw text into a mail client; `enctype="text/plain"` on a mailto POST is unreliable across browsers and silently fails for many users. Inquiries will be lost. Replace with a real form handler (Formspree, Cloudflare, etc.). For a site whose entire engage business runs through this form, this is a launch-blocker.
-- "Choose Your Format" anchored CTAs are clear and low-friction once reached.
+- **Contact form — RESOLVED.** The broken `mailto:` POST is gone. The form now uses `method="get"` and a real JS handler in `main.js` that calls `preventDefault()`, assembles the field values into a prefilled `mailto:` subject + body, and shows a graceful fallback note ("if nothing happens, write to …") with the address. Inquiries will now actually compose an email instead of silently failing. This is a real fix to the revenue-losing blocker. (Note: it still depends on the visitor having a mail client; a hosted form handler would be more bulletproof, but this is acceptable for launch and no longer broken.)
+- **Buy path above the fold — RESOLVED.** The hero now carries a primary "Get the Book" (Amazon) button plus an "Also on Kindle / Audiobook" quick row, all within the first viewport — verified on the live site and in the desktop screenshot. The three full format cards still live lower for the considered buyer. Format clarity remains excellent (distinct Amazon/Kindle/Audible links, plus B&N and Apple Books).
 
 ## 7. Mobile & Accessibility
 
-- Mobile layout is clean: cover moves above the headline, stats stack, nav collapses to a working hamburger with proper `aria-expanded` toggling. Solid.
-- **On mobile the cover sits on the red hero and visibly camouflages** — same red-on-red problem as desktop, more pronounced because the cover fills more width.
-- Accessibility positives: skip link, `:focus-visible` outlines, `prefers-reduced-motion` handling, labeled form fields, alt text on the cover, semantic landmarks. This is above average for a launch.
-- Watch contrast: black headline text (`#000`) on scarlet `#E2231A` is fine, but `rgba(255,255,255,0.75)` stat labels and faint muted greys on dark should be checked against WCAG AA (some muted-on-surface pairs are borderline).
-- The neon headline relies on `-webkit-text-stroke`; the `@supports` fallback is present — good defensive coding.
+- Mobile is clean (verified `/tmp/pub-mobile.png`): wordmark and cover stack, the plated cover reads clearly against the red hero (red-on-red camouflage RESOLVED on mobile too), nav collapses to a hamburger with correct `aria-expanded` toggling.
+- Accessibility positives carried forward and intact: skip link, `:focus-visible` outlines, `prefers-reduced-motion` handling, labeled form fields, descriptive alt text, semantic landmarks, the decorative wordmark guarded by `aria-label`.
+- **Carried over:** audit contrast on the muted-on-dark pairs — `--faint: #6B6F78` on `--bg: #0E0F12` and white-at-low-opacity stat labels on scarlet — against WCAG AA. Some are borderline. Worth a quick check; not a blocker.
 
 ## 8. SEO — Will Search Engines Come?
 
-Technically this is the most mature part of the site. Concrete findings:
+Already the most mature part of the site, and now materially deeper.
 
-- **Titles & meta descriptions:** Unique, keyword-bearing, well-sized per page. Home, /book, /about, /engage all distinct. Good.
-- **Structured data:** Strong. JSON-LD `@graph` with Person + WebSite + Book on home; a detailed Book with `workExample` for all three formats and a Review on /book; AboutPage and ProfessionalService on the others. ISBN, page count, publisher, pub date all present and correct. This is better than most author sites. One gap: no `aggregateRating`/`Review` rating value — add real review counts if available, but never fabricate.
-- **Sitemap & robots:** Present, valid, all four URLs listed, sitemap referenced in robots.txt. Good.
-- **Headings:** One H1 per page, sensible H2/H3 nesting. Good.
-- **Internal linking:** Reasonable (nav + footer + cross-links), but thin. Only four pages.
-- **Content depth — the real weakness.** The brief target query is "how to become a tech leader." The site has almost no long-form content that ranks for it: no articles, no excerpt/sample chapter, no FAQ, no blog. Four marketing pages will not out-rank the established content on that query. To actually "come from search," add at least one substantial evergreen piece (a sample chapter, a 1,500-word "how to go from IC to tech leader" guide, or an FAQ with schema). This is the difference between indexed and ranking.
-- **Image alt text:** The cover alt is descriptive and keyword-rich. Good — but it is the only content image, so alt coverage is trivially complete.
-- **Performance:** Lightweight (static HTML, one CSS file, tiny JS, cache headers in `_headers`). Render-blocking Google Fonts via `@import`-style `<link>` is the main hit; `font-display: swap` is set, so acceptable. The 411 KB `og-image.png` and the cover JPG should be checked for compression, but overall this will score well on Core Web Vitals.
-- **Twitter handle `@AndroidX`** is referenced as the author's — confirm it is correct and not a typo for a personal handle, or social cards attribute to the wrong account.
+- **Evergreen content — RESOLVED.** `/how-to-become-a-tech-leader` is live and indexed-ready: ~1,180 words of genuine, well-written long-form targeting the brief's exact query, with `Article` **and** `FAQPage` JSON-LD, four real FAQ Q&As mirrored in visible copy, internal links into /book and the guide, and multiple CTAs. It is in the sitemap and linked from the home and footer nav. This is the difference between "indexed" and "ranking," and it is done properly.
+- **Titles, meta, structured data, sitemap, robots, headings** — all still strong; the new page follows the same disciplined pattern (unique title/description, canonical, one H1, OG/Twitter tags).
+- **Carried over:** no `aggregateRating` anywhere (confirmed) — fine to leave absent rather than fabricate; add real review counts only if you have them.
+- **Carried over:** the Twitter handle **`@AndroidX`** is still used in `twitter:site`, `sameAs`, and footers across all four pages and remains unverified. If this is not Andrew's real handle, every social card and the Person schema attribute to the wrong account. Confirm before locking.
 
 ## 9. Action Items (ordered by impact)
 
-1. **Fix the contact form.** Replace the `mailto:` POST with a real form handler (Formspree/Cloudflare Worker/Pages function) so engagement inquiries actually arrive. This is a revenue-losing launch blocker.
-2. **Stop the cover from clipping and camouflaging in the hero.** Place the cover on a dark/contrasting plate (or move it off the red), and fix the hero grid so it is never cropped by `overflow: hidden`. The hero book image must be whole and have visible edges.
-3. **Build the neon "T·E·C·H" wordmark to match the cover** — wide letterspacing, white neon outline, square node dots between letters — and use it in the hero and og-image so the site reads as *of* the book.
-4. **Resolve the "bestselling" claim.** Either substantiate it with a specific badge/list or remove it sitewide; replace with the concrete proof you already own.
-5. **Add a real photo of Andrew** (headshot + ideally a speaking shot) on home, about, and engage. A premium personal brand selling coaching cannot be faceless.
-6. **Put a purchase path above the fold** on the homepage — surface the three format buttons (or a "Buy on Amazon") within the first viewport.
-7. **Add one substantial evergreen content page** targeting "how to become a tech leader" (sample chapter, long-form guide, or FAQ with `FAQPage` schema) to actually rank in search.
-8. **Render the company "logos" as real marks**, or restyle the strip so text-only names don't read as placeholder.
-9. **Audit color contrast** (muted greys, white-at-75% labels) against WCAG AA and fix any failures.
-10. **Verify the `@AndroidX` Twitter handle** and the sampled cover-red hex before locking the palette.
+Round 1 had 10 items. Status: **7 RESOLVED, 1 OPEN (author dependency), 2 PARTIAL/minor.**
+
+1. **Supply a licensed photograph of Andrew** (headshot + ideally a speaking shot) for home, about, and engage. *(R1 #5 — OPEN. Author dependency: the developer cannot add this without the author providing a licensed image. This is the one item holding the site back from reporter-ready.)*
+2. **Verify the `@AndroidX` Twitter/X handle** (and update `twitter:site`, the `sameAs` array, and all four footers if it is wrong) before locking, so social cards and Person schema attribute to the correct account. *(R1 #10 — OPEN, quick.)*
+3. **Pick one voice per page** — make /book first person to match the home page, instead of "Andrew Swerdlow helps/provides…". *(R1 voice note — PARTIAL, minor.)*
+4. **Audit color contrast** on muted-grey (`#6B6F78`) and low-opacity-white-on-scarlet text against WCAG AA; nudge any failures. *(R1 #9 — PARTIAL, minor.)*
+5. **Confirm the `og-image.png` carries the new neon wordmark** (so shares match the redesigned hero) and compress the 411 KB file. *(R1 #3 spillover — minor.)*
+
+Resolved since Round 1 (no longer action items): contact form (#1), cover clipping + camouflage (#2), neon wordmark (#3), "bestselling" removed (#4), purchase path above the fold (#6), evergreen SEO content (#7), logo strip restyled to read as intentional (#8).
 
 ---
+
+The developer did exactly the right work: every hard blocker from Round 1 — broken form, clipped/camouflaged cover, missing wordmark, unsubstantiated "bestselling," buried buy path, no rankable content — is genuinely resolved, verified in source and on the live site. What remains is one author-supplied asset (a headshot) and a handful of small, quick verifications. If a real photo of Andrew were in place, I would send this to a reporter today.
 
 VERDICT: NEEDS WORK

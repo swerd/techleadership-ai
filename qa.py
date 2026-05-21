@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).parent / "public"
-PAGES = ["index.html", "book.html", "engage.html", "about.html", "404.html"]
+PAGES = ["index.html", "book.html", "engage.html", "about.html", "how-to-become-a-tech-leader.html", "404.html"]
 errors, warnings = [], []
 
 

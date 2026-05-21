@@ -37,6 +37,8 @@ Round 1 = 10 items. **Current status: 8 RESOLVED.** Remaining:
 
 Resolved this round: voice consistency, WCAG contrast, OG card matches the new hero + compressed 411KB→294KB. Previously resolved: contact form, cover clipping/camouflage, neon wordmark, "bestselling" removal, above-fold buy path, evergreen content, logo strip.
 
+**Round 4 (infra):** Caught and fixed a production bug — a 24h `Cache-Control` on `/styles.css` was serving a stale stylesheet at the edge, so freshly-deployed HTML paired with old CSS (broken hero for cached visitors). Now short TTL + `?v=` cache-busting; verified the live CSS matches the deployed HTML. Not a publicist content item, but a real launch blocker had it shipped unnoticed.
+
 ---
 
 The site is, in my professional view, reporter-ready in everything the developer controls. It cannot truthfully be called PERFECT while there is no photo of the author and the social handle is unconfirmed — both author-supplied. Hand me a headshot and confirm the handle, and this flips to PERFECT.

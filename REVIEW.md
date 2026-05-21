@@ -30,10 +30,11 @@ Responsive, hamburger with `aria-expanded`, skip link, focus-visible, reduced-mo
 Unique titles/descriptions, canonicals, JSON-LD (Person/WebSite/Book + per-format workExample + Article + FAQPage), sitemap, internal links, and a ~1,200-word evergreen guide targeting "how to become a tech leader." Mature and well above typical author sites.
 
 ## 9. Action Items
-Round 1 = 10 items. **Current status: 8 RESOLVED.** Remaining:
+Round 1 = 10 items. **Current status: 9 RESOLVED. One OPEN — a pure author dependency.** Remaining:
 
 1. **Supply a licensed photograph of Andrew** (headshot + ideally a speaking shot) for home, about, engage. **OPEN — author dependency.** This is the *only* thing holding the site back from reporter-ready; the developer cannot add it without the author providing a licensed image (scraping a headshot is off-limits).
-2. **Confirm the `@AndroidX` X/Twitter handle.** **OPEN — needs author confirmation** (one-line fix once confirmed; otherwise correct-attribution risk in `twitter:site`, `sameAs`, footers).
+
+Resolved Round 5: the unverified `@AndroidX` handle was removed sitewide (`twitter:site`, schema `sameAs`, footer links) to avoid mis-attributing the author's social cards; generic `twitter:card` tags retained. Re-add once a confirmed handle is supplied.
 
 Resolved this round: voice consistency, WCAG contrast, OG card matches the new hero + compressed 411KB→294KB. Previously resolved: contact form, cover clipping/camouflage, neon wordmark, "bestselling" removal, above-fold buy path, evergreen content, logo strip.
 
@@ -41,6 +42,6 @@ Resolved this round: voice consistency, WCAG contrast, OG card matches the new h
 
 ---
 
-The site is, in my professional view, reporter-ready in everything the developer controls. It cannot truthfully be called PERFECT while there is no photo of the author and the social handle is unconfirmed — both author-supplied. Hand me a headshot and confirm the handle, and this flips to PERFECT.
+The site is, in my professional view, reporter-ready in everything the developer controls — there is now exactly **one** open item, and it is not a developer item: there is no photograph of the author. A premium site selling coaching and speaking cannot be faceless. Supply a licensed headshot and this flips to PERFECT.
 
 VERDICT: NEEDS WORK

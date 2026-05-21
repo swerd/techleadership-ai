@@ -123,13 +123,14 @@ p { margin: 0 0 1.1em; }
 /* ---------- header / nav ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
+  background: rgba(14, 15, 18, 0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgba(242, 240, 236, 0.08);
 }
 .site-header.is-scrolled {
-  background: rgba(22, 24, 29, 0.82);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom-color: var(--border-lit);
+  box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.6);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .brand {
@@ -196,27 +197,43 @@ p { margin: 0 0 1.1em; }
 }
 .circuit-bg > * { position: relative; z-index: 1; }
 
-/* ---------- hero ---------- */
-.hero { position: relative; overflow: hidden; padding-block: clamp(4rem, 11vw, 8rem); }
+/* ---------- hero (RED — mirrors the book cover) ---------- */
+.hero {
+  position: relative; overflow: hidden; padding-block: clamp(4rem, 11vw, 8rem);
+  background: var(--scarlet); color: #fff;
+}
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: 0;
-  background-image: var(--circuit); background-size: 260px 260px; opacity: 0.85; pointer-events: none;
+  background-image: url("/assets/circuit-ink.svg"); background-size: 260px 260px;
+  opacity: 1; pointer-events: none;
 }
 .hero::after {
-  content: ""; position: absolute; right: -8%; top: -15%; z-index: 0;
+  content: ""; position: absolute; right: -8%; top: -20%; z-index: 0;
   width: 56vw; height: 56vw; max-width: 760px; max-height: 760px;
-  background: radial-gradient(circle at center, rgba(226, 35, 26, 0.16), transparent 62%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.12), transparent 60%);
   pointer-events: none;
 }
 .hero .wrap { position: relative; z-index: 1; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-.hero h1 { font-size: clamp(2.7rem, 7vw, 5.6rem); line-height: 0.94; max-width: 14ch; }
-.hero .lead { max-width: 46ch; margin-top: 1.5rem; }
+.hero .eyebrow { color: #fff; }
+.hero .eyebrow::before { background: #fff; box-shadow: none; }
+.hero h1 { font-size: clamp(2.7rem, 7vw, 5.6rem); line-height: 0.92; max-width: 14ch; color: #000; }
+.hero h1 .neon {
+  color: transparent; -webkit-text-stroke: 2.5px #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.55); paint-order: stroke fill;
+}
+.hero .lead { max-width: 46ch; margin-top: 1.5rem; color: rgba(255, 255, 255, 0.94); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.4rem; }
+/* buttons on red: primary becomes black, ghost becomes white-outline */
+.hero .btn--scarlet { background: #0E0F12; border-color: #0E0F12; color: #fff; }
+.hero .btn--scarlet:hover { background: #000; border-color: #000; box-shadow: 0 18px 40px -18px rgba(0,0,0,0.6); }
+.hero .btn--ghost { border-color: rgba(255,255,255,0.75); color: #fff; }
+.hero .btn--ghost:hover { background: #fff; color: var(--scarlet); border-color: #fff; }
 .hero-cover { display: flex; justify-content: center; }
 .hero-cover img {
   width: 100%; max-width: 340px; border-radius: 5px;
-  transform: rotate(-3deg); box-shadow: var(--shadow-scarlet);
+  transform: rotate(-3deg); border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: 0 40px 80px -26px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.08);
   transition: transform .4s ease;
 }
 .hero-cover img:hover { transform: rotate(0deg) translateY(-4px); }
@@ -226,10 +243,10 @@ p { margin: 0 0 1.1em; }
   .hero-cover img { max-width: 240px; }
 }
 
-.hero-meta { margin-top: 3.2rem; display: flex; flex-wrap: wrap; gap: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+.hero-meta { margin-top: 3.2rem; display: flex; flex-wrap: wrap; gap: 2.5rem; border-top: 1px solid rgba(255,255,255,0.28); padding-top: 2rem; }
 .hero-meta div { min-width: 90px; }
-.hero-meta .stat { font-family: var(--display); font-weight: 900; font-stretch: 125%; font-size: clamp(1.8rem, 3vw, 2.6rem); display: block; line-height: 1; color: var(--text); }
-.hero-meta .stat-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); }
+.hero-meta .stat { font-family: var(--display); font-weight: 900; font-stretch: 125%; font-size: clamp(1.8rem, 3vw, 2.6rem); display: block; line-height: 1; color: #fff; }
+.hero-meta .stat-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
 
 /* ---------- credibility strip ---------- */
 .logos { background: var(--surface); border-block: 1px solid var(--border); }
@@ -282,6 +299,19 @@ p { margin: 0 0 1.1em; }
 .also-at { margin-top: 1.6rem; font-size: 0.92rem; color: var(--faint); }
 .also-at a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); }
 .also-at a:hover { color: var(--text); border-color: var(--text); }
+
+/* ---------- inline endorsement ---------- */
+.endorse {
+  margin: 2rem 0 0; padding: 1.2rem 0 0 1.4rem;
+  border-left: 3px solid var(--scarlet);
+  font-family: var(--body); font-style: italic; font-size: 1.02rem; line-height: 1.55;
+  color: var(--text);
+}
+.endorse cite {
+  display: block; margin-top: 0.8rem; font-style: normal; font-size: 0.82rem;
+  letter-spacing: 0.04em; color: var(--muted);
+}
+.endorse cite strong { color: var(--text); }
 
 /* ---------- testimonial ---------- */
 .quote { background: var(--surface); border-block: 1px solid var(--border); }

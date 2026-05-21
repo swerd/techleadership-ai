@@ -1,5 +1,6 @@
 node_modules/
 .wrangler/
+.mobile-qa/
 .DS_Store
 *.log
 .dev.vars

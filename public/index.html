@@ -23,14 +23,14 @@
 <meta name="twitter:title" content="Andrew Swerdlow — Tech Leadership" />
 <meta name="twitter:description" content="Bestselling author and technology leader. The blueprint for evolving from individual contributor to tech leader." />
 <meta name="twitter:image" content="https://techleadership.ai/assets/og-image.png" />
-<meta name="theme-color" content="#14161c" />
+<meta name="theme-color" content="#0E0F12" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/favicon.svg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,430;0,9..144,500;1,9..144,380&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/styles.css" />
 
 <script type="application/ld+json">
@@ -111,17 +111,27 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <span class="eyebrow reveal">Author · Speaker · Advisor</span>
-      <h1 class="reveal">The blueprint for becoming a tech leader.</h1>
-      <p class="lead reveal">For three decades I have built and led engineering organizations at Google, Instagram, Facebook, and YouTube — and written the book on how individual contributors evolve into the leaders their teams deserve.</p>
-      <div class="hero-actions reveal">
-        <a class="btn btn--brass" href="/book">Read the Book</a>
-        <a class="btn btn--ghost" href="/engage">Work With Me</a>
-      </div>
-      <div class="hero-meta reveal">
-        <div><span class="stat">35+</span><span class="stat-label">Patents awarded</span></div>
-        <div><span class="stat">100+</span><span class="stat-label">Engineers led</span></div>
-        <div><span class="stat">Billions</span><span class="stat-label">Of users reached</span></div>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow reveal">Author · Speaker · Advisor</span>
+          <h1 class="reveal">The blueprint for becoming a <span class="neon">tech leader</span>.</h1>
+          <p class="lead reveal">For three decades I built and led engineering organizations at Google, Instagram, Facebook, and YouTube — and wrote the book on how individual contributors evolve into the leaders their teams deserve.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn--scarlet" href="/book">Get the Book</a>
+            <a class="btn btn--ghost" href="/engage">Work With Me</a>
+          </div>
+          <div class="hero-meta reveal">
+            <div><span class="stat">35+</span><span class="stat-label">Patents awarded</span></div>
+            <div><span class="stat">100+</span><span class="stat-label">Engineers led</span></div>
+            <div><span class="stat">Billions</span><span class="stat-label">Of users reached</span></div>
+          </div>
+        </div>
+        <div class="hero-cover reveal">
+          <a href="/book" aria-label="Tech Leadership — view the book">
+            <img src="/assets/book-cover.jpg" width="906" height="1400" loading="eager"
+                 alt="Tech Leadership: The Blueprint for Evolving from Individual Contributor to Tech Leader, by Andrew Swerdlow — book cover" />
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -164,29 +174,66 @@
   <!-- BOOK -->
   <section class="section" id="book">
     <div class="wrap split split--reverse">
-      <div class="reveal" style="display:flex; justify-content:center;">
-        <a class="book-cover" href="/book" aria-label="Tech Leadership — read more about the book">
-          <div>
-            <div class="bc-top">A Bestselling Book</div>
-          </div>
-          <div>
-            <div class="bc-rule"></div>
-            <h2 class="bc-title" style="color:var(--paper);">Tech Leadership</h2>
-            <p class="bc-sub">The Blueprint for Evolving from Individual Contributor to Tech Leader</p>
-          </div>
-          <div class="bc-author">Andrew Swerdlow</div>
+      <div class="reveal cover-shot">
+        <a href="/book" aria-label="Tech Leadership — read more about the book">
+          <img src="/assets/book-cover.jpg" width="906" height="1400" loading="lazy"
+               alt="Tech Leadership book cover by Andrew Swerdlow" />
         </a>
       </div>
       <div class="reveal">
         <span class="eyebrow">The Book</span>
-        <h2>Want to develop your career in tech? Discover how to thrive as a leader and mentor.</h2>
-        <p class="lead">Drawing on leadership at Instagram, Google, and YouTube, <em>Tech Leadership</em> is the practical, accessible guide to growing into a larger role — no matter your education or background.</p>
+        <h2>Thrive as a leader and a mentor.</h2>
+        <p class="lead">Drawing on leadership at Instagram, Google, and YouTube, <strong>Tech Leadership</strong> is the practical, accessible guide to growing into a larger role — no matter your education or background.</p>
         <p>It is packed with real-life stories from years in the field, frameworks you can use on Monday morning, and hard-won wisdom from seasoned experts. The book equips you to master the five critical elements of product development, build your capacity to mentor, and lead through collaboration, strategy, and execution.</p>
         <div class="hero-actions">
-          <a class="btn btn--brass" href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor/dp/B0CK45BHLX" target="_blank" rel="noopener">Buy on Amazon</a>
+          <a class="btn btn--scarlet" href="#formats">Choose Your Format</a>
           <a class="btn btn--ghost" href="/book">Inside the Book</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CHOOSE YOUR FORMAT -->
+  <section class="section circuit-bg" id="formats">
+    <div class="wrap">
+      <div class="reveal center" style="max-width:46ch; margin-inline:auto;">
+        <span class="eyebrow" style="justify-content:center;">Choose Your Format</span>
+        <h2>Read it. Or listen to it.</h2>
+        <p class="lead">Available in print, on Kindle, and as a narrated audiobook.</p>
+      </div>
+      <div class="formats reveal">
+        <article class="format-card">
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5A1.5 1.5 0 0 1 4.5 4H10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4.5A1.5 1.5 0 0 1 3 16.5z"/><path d="M21 5.5A1.5 1.5 0 0 0 19.5 4H14a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg>
+          </span>
+          <h3>Paperback</h3>
+          <p>The 354-page print edition. Margins made for notes.</p>
+          <a class="btn btn--scarlet" href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor/dp/B0CK45BHLX" target="_blank" rel="noopener">Get the Paperback</a>
+          <p class="f-sub">On Amazon</p>
+        </article>
+        <article class="format-card">
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="9.5" x2="15" y2="9.5"/><line x1="9" y1="13" x2="13" y2="13"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg>
+          </span>
+          <h3>Kindle</h3>
+          <p>Read instantly on any device. Highlight and sync as you go.</p>
+          <a class="btn btn--scarlet" href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor-ebook/dp/B0CK7ZM6B8" target="_blank" rel="noopener">Read on Kindle</a>
+          <p class="f-sub">Amazon Kindle</p>
+        </article>
+        <article class="format-card">
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 14a2 2 0 0 1 2-2h0a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h0a2 2 0 0 1-2-2z"/><path d="M20 14a2 2 0 0 0-2-2h0a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h0a2 2 0 0 0 2-2z"/><path d="M19 18v.5a3 3 0 0 1-3 3H13"/></svg>
+          </span>
+          <h3>Audiobook</h3>
+          <p>Listen on the commute. Narrated and unabridged.</p>
+          <a class="btn btn--scarlet" href="https://www.amazon.com/Tech-Leadership-Blueprint-Individual-Contributor/dp/B0CZLZNH27" target="_blank" rel="noopener">Listen on Audible</a>
+          <p class="f-sub">Audible</p>
+        </article>
+      </div>
+      <p class="also-at reveal center" style="text-align:center;">Also available at
+        <a href="https://www.barnesandnoble.com/w/tech-leadership-andrew-swerdlow/1144149160" target="_blank" rel="noopener">Barnes &amp; Noble</a> and
+        <a href="https://books.apple.com/us/book/tech-leadership-the-blueprint-for-evolving-from/id6468364445" target="_blank" rel="noopener">Apple Books</a>.
+      </p>
     </div>
   </section>
 
@@ -273,7 +320,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <button class="btn btn--brass" type="submit">Send inquiry</button>
+          <button class="btn btn--scarlet" type="submit">Send inquiry</button>
         </form>
       </div>
     </div>

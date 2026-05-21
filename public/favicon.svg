@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Andrew Swerdlow">
-  <rect width="64" height="64" rx="12" fill="#14161c"/>
-  <text x="32" y="43" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="500"
-        text-anchor="middle" fill="#9a7c3f" letter-spacing="-1">AS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Andrew Swerdlow — Tech Leadership">
+  <rect width="64" height="64" rx="12" fill="#0E0F12"/>
+  <rect x="6" y="6" width="52" height="52" rx="9" fill="none" stroke="#E2231A" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="32" y="44" font-family="Archivo, 'Arial Black', sans-serif" font-size="30" font-weight="900"
+        text-anchor="middle" fill="#E2231A" letter-spacing="-1">AS</text>
 </svg>

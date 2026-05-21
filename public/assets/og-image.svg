@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14161c"/>
+      <stop offset="0.55" stop-color="#1c2029"/>
+      <stop offset="1" stop-color="#14161c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.2" r="0.5">
+      <stop offset="0" stop-color="#9a7c3f" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#9a7c3f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="64" y="64" width="1072" height="502" fill="none" stroke="#9a7c3f" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="100" y="150" font-family="Inter, sans-serif" font-size="22" letter-spacing="6" fill="#b89b5e" font-weight="600">ANDREW SWERDLOW</text>
+  <text x="100" y="285" font-family="Georgia, 'Times New Roman', serif" font-size="92" fill="#f7f3ea" font-weight="500">Tech Leadership</text>
+  <text x="100" y="360" font-family="Georgia, serif" font-size="34" fill="#cfc9bb" font-style="italic">The Blueprint for Evolving from</text>
+  <text x="100" y="408" font-family="Georgia, serif" font-size="34" fill="#cfc9bb" font-style="italic">Individual Contributor to Tech Leader</text>
+  <line x1="100" y1="470" x2="240" y2="470" stroke="#9a7c3f" stroke-width="3"/>
+  <text x="100" y="520" font-family="Inter, sans-serif" font-size="22" fill="#8a8e98" letter-spacing="2">Author · Speaker · Advisor &#8212; techleadership.ai</text>
+</svg>

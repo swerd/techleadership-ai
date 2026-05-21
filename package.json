@@ -1,0 +1,12 @@
+{
+  "name": "techleadership-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing site for Andrew Swerdlow — Tech Leadership (book, speaking, advising, coaching).",
+  "scripts": {
+    "dev": "python3 -m http.server 8765 --directory public",
+    "qa": "python3 qa.py",
+    "deploy": "wrangler pages deploy public --project-name=techleadership"
+  },
+  "license": "UNLICENSED"
+}

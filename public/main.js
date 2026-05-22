@@ -53,30 +53,67 @@
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
 
-  // Inquiry forms -> open a prefilled email (no backend dependency)
-  document.querySelectorAll("form.inquiry-form").forEach(function (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  // Forms: submit asynchronously to a Cloudflare Pages Function. If the backend
+  // isn't configured yet (no email key) or the request fails, gracefully fall back
+  // to opening the visitor's email client with a prefilled message — so the contact
+  // path always works.
+  document.querySelectorAll("form[data-endpoint]").forEach(function (form) {
+    var isNewsletter = form.classList.contains("newsletter-form");
+    var note = form.querySelector("[data-form-note]");
+    var btn = form.querySelector("button[type=submit], button:not([type])");
+    var btnText = btn ? btn.textContent : "";
+
+    function setNote(msg, isError) {
+      if (!note) return;
+      note.textContent = msg;
+      note.hidden = !msg;
+      note.classList.toggle("is-error", !!isError);
+    }
+
+    function mailtoFallback() {
       var to = form.getAttribute("data-email");
-      var data = new FormData(form);
-      var subject = "Inquiry via techleadership.ai";
+      var subject = isNewsletter ? "Newsletter signup via techleadership.ai" : "Inquiry via techleadership.ai";
       var lines = [];
-      data.forEach(function (val, key) {
-        if (String(val).trim() === "") return;
+      new FormData(form).forEach(function (val, key) {
+        if (key === "company_website" || String(val).trim() === "") return;
         var label = key.charAt(0).toUpperCase() + key.slice(1);
         if (key === "topic") subject = "techleadership.ai — " + val;
         lines.push(label + ": " + val);
       });
-      var href =
-        "mailto:" + to +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(lines.join("\n"));
-      var note = form.querySelector("[data-form-note]");
-      if (note) {
-        note.textContent = "Opening your email app… if nothing happens, write to " + to + ".";
-        note.hidden = false;
-      }
+      if (isNewsletter) lines.unshift("Please add me to your mailing list.");
+      var href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+      setNote("Opening your email app… if nothing happens, write to " + to + ".");
       window.location.href = href;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (form.reportValidity && !form.reportValidity()) return;
+
+      var endpoint = form.getAttribute("data-endpoint");
+      var payload = {};
+      new FormData(form).forEach(function (val, key) { payload[key] = val; });
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      setNote("");
+
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, body: body }; });
+        })
+        .then(function (r) {
+          if (r.ok && r.body && r.body.ok) {
+            form.reset();
+            setNote(isNewsletter ? "You're in — thanks for subscribing." : "Thank you — your note is on its way. I'll be in touch.");
+          } else {
+            mailtoFallback();
+          }
+        })
+        .catch(function () { mailtoFallback(); })
+        .finally(function () { if (btn) { btn.disabled = false; btn.textContent = btnText; } });
     });
   });
 })();

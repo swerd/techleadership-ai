@@ -1,0 +1,24 @@
+# Andrew Swerdlow — Tech Leadership
+
+> Andrew Swerdlow is a San Francisco–based technology leader (leadership roles at Google, Instagram, Facebook, and YouTube) and author of *Tech Leadership: The Blueprint for Evolving from Individual Contributor to Tech Leader*. He has directly managed more than 100 engineers and led organizations through which nearly 1,000 engineers have grown, holds 35+ patents, and has shipped products used by billions of people. This site presents his book, his selective speaking/advising/coaching, and a free guide.
+
+The site's central idea: **in the age of AI, leadership is a skill for everyone.** As each person directs a team of intelligent agents — delegating, reviewing, and setting direction — the leadership craft once reserved for managers becomes a core skill for every builder. The book is the practical blueprint for that transition.
+
+## Key pages
+- [Home](https://techleadership.ai/): Overview of Andrew Swerdlow, the book, credentials, and ways to work together.
+- [The Book](https://techleadership.ai/book): *Tech Leadership* — what it covers, who it's for, and where to buy (Amazon paperback, Kindle, Audible; also Barnes & Noble and Apple Books).
+- [About](https://techleadership.ai/about): Full biography, career, education, and philosophy ("people first").
+- [Work With Me](https://techleadership.ai/engage): Keynote speaking, advising/consulting, executive coaching, and mentorship/bootcamps — a limited number of engagements each year.
+- [Guide: How to become a tech leader](https://techleadership.ai/how-to-become-a-tech-leader): A free, evergreen guide for engineers moving into leadership.
+
+## The book
+- Title: *Tech Leadership: The Blueprint for Evolving from Individual Contributor to Tech Leader*
+- Author: Andrew Swerdlow · Publisher: Base Two Publishing (2023) · 354 pages · ISBN 979-8-9889849-1-7
+- Formats & links: Paperback and Kindle and Audible on Amazon (ASIN B0CK45BHLX), Barnes & Noble, Apple Books.
+- Topics: the individual-contributor-to-leader transition, the five critical elements of product development, mentorship as a force multiplier, collaborative leadership, and leading in the age of AI.
+
+## Contact
+- Email: andrewcswerdlow@gmail.com
+- LinkedIn: https://www.linkedin.com/in/andrewswerdlow/
+- Personal site: https://www.andrewswerdlow.net/
+- Location: San Francisco, California (available worldwide & remote)
